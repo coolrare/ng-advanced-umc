@@ -1,0 +1,8 @@
+
+1. ng g module pages --module app --route pages
+
+2. ng g component pages/blank --module pages
+
+3. 修改 pages-routing.module.ts 程式，加入 blank 頁面路由
+
+4. 透過 Microsoft Edge 確認 Angular 延遲載入有正確執行
