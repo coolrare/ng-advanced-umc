@@ -7,6 +7,7 @@ import { Page2Component } from './page2/page2.component';
 import { ColorComponent } from './utils/color/color.component';
 import { LoginComponent } from './login/login.component';
 import { LayoutComponent } from './layout/layout.component';
+import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -22,8 +23,8 @@ const routes: Routes = [
           { path: 'color/:type', component: ColorComponent }
         ]
       },
-      { path: 'page1', component: Page1Component },
-      { path: 'page2', component: Page2Component },
+      { path: 'page1', component: Page1Component, canActivate: [AuthGuard] },
+      { path: 'page2', component: Page2Component, canActivate: [AuthGuard] },
       { path: 'pages', loadChildren: () => import('./pages/pages.module').then(m => m.PagesModule) },
     ]
   },
@@ -33,6 +34,7 @@ const routes: Routes = [
 @NgModule({
   imports: [RouterModule.forRoot(routes, {
     useHash: true,
+    enableTracing: true,
     preloadingStrategy: PreloadAllModules
   })],
   exports: [RouterModule]
