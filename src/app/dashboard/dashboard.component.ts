@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
 import { chartAreaDemo } from '../chartAreaDemo';
 import { chartPieDemo } from '../chartPieDemo';
 
@@ -8,11 +9,20 @@ import { chartPieDemo } from '../chartPieDemo';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     chartAreaDemo();
     chartPieDemo();
+  }
+
+  goto(type: number) {
+    // this.router.navigateByUrl('/utils/color/' + type + '?name=John');
+    this.router.navigate(['/utils/color/', type], {
+      queryParams: {
+        name: 'Will'
+      }
+    });
   }
 
 }
