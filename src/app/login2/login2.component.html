@@ -29,40 +29,49 @@ form.errors    = {{ form.errors | json }}</pre>
 
                       formControlName="email"
 
-                      [class.is-valid]="form.get('email').valid && form.get('email').touched"
-                      [class.is-invalid]="form.get('email').invalid && form.get('email').touched"
+                      [class.is-valid]="fc('email').valid && fc('email').touched"
+                      [class.is-invalid]="fc('email').invalid && fc('email').touched"
 
                           class="form-control form-control-user"
                           id="exampleInputEmail"
                           aria-describedby="emailHelp"
                           placeholder="Enter Email Address...">
-                      <div *ngIf="form.get('email').invalid && form.get('email').touched">
-                        <ol>
-                          <li *ngIf="form.get('email').errors['required']">請輸入 E-mail 欄位</li>
-                          <li *ngIf="form.get('email').errors['email']">請輸入合法的 E-mail 欄位</li>
-                        </ol>
+                      <div *ngIf="fc('email').invalid && fc('email').touched">
+                        <ul>
+                          <li *ngIf="fc('email').errors['required']">請輸入 E-mail 欄位</li>
+                          <li *ngIf="fc('email').errors['email']">請輸入合法的 E-mail 欄位</li>
+                        </ul>
                       </div>
-<pre>form.get('email').value     = {{ form.get('email').value | json }}
-form.get('email').valid     = {{ form.get('email').valid | json }}
-form.get('email').invalid   = {{ form.get('email').invalid | json }}
-form.get('email').pristine  = {{ form.get('email').pristine | json }}
-form.get('email').dirty     = {{ form.get('email').dirty | json }}
-form.get('email').touched   = {{ form.get('email').touched | json }}
-form.get('email').untouched = {{ form.get('email').untouched | json }}
-form.get('email').enabled   = {{ form.get('email').enabled | json }}
-form.get('email').disabled  = {{ form.get('email').disabled | json }}
-form.get('email').errors    = {{ form.get('email').errors | json }}</pre>
+<pre>fc('email').value     = {{ fc('email').value | json }}
+fc('email').valid     = {{ fc('email').valid | json }}
+fc('email').invalid   = {{ fc('email').invalid | json }}
+fc('email').pristine  = {{ fc('email').pristine | json }}
+fc('email').dirty     = {{ fc('email').dirty | json }}
+fc('email').touched   = {{ fc('email').touched | json }}
+fc('email').untouched = {{ fc('email').untouched | json }}
+fc('email').enabled   = {{ fc('email').enabled | json }}
+fc('email').disabled  = {{ fc('email').disabled | json }}
+fc('email').errors    = {{ fc('email').errors | json }}</pre>
                   </div>
                   <div class="form-group">
                     <input type="password"
 
                       formControlName="password"
 
-                      [class.is-valid]="form.get('password').valid && form.get('password').touched"
-                      [class.is-invalid]="form.get('password').invalid && form.get('password').touched"
+                      [class.is-valid]="fc('password').valid && fc('password').touched"
+                      [class.is-invalid]="fc('password').invalid && fc('password').touched"
 
                            class="form-control form-control-user" id="exampleInputPassword"
                            placeholder="Password">
+
+                      <div *ngIf="fc('password').invalid && fc('password').touched">
+                        <ul>
+                          <li *ngIf="fc('password').errors['required']">請輸入密碼欄位</li>
+                          <li *ngIf="fc('password').errors['pattern']">請輸入足夠複雜的密碼</li>
+                        </ul>
+                      </div>
+<pre>fc('password').value     = {{ fc('password').value | json }}
+fc('password').errors    = {{ fc('password').errors | json }}</pre>
                   </div>
                   <div class="form-group">
                     <div class="custom-control custom-checkbox small">

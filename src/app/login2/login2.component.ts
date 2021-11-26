@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-login2',
@@ -30,7 +30,10 @@ export class Login2Component implements OnInit {
         updateOn: 'blur'
       }),
       password: this.fb.control('', {
-        validators: [Validators.required],
+        validators: [
+          Validators.required,
+          Validators.pattern(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,30}$/)
+        ],
         updateOn: 'blur'
       }),
       isRememberMe: this.fb.control(true)
@@ -53,6 +56,18 @@ export class Login2Component implements OnInit {
     if (this.form.valid) {
       alert('表單送出');
     }
+  }
+
+  fc(name: string) {
+    return this.form.get(name) as FormControl;
+  }
+
+  fg(name: string) {
+    return this.form.get(name) as FormGroup;
+  }
+
+  fa(name: string) {
+    return this.form.get(name) as FormArray;
   }
 
 }
