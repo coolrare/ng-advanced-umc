@@ -21,10 +21,19 @@
                       #mEmail="ngModel"
                       required email
 
+                      [class.is-valid]="mEmail.valid && mEmail.touched"
+                      [class.is-invalid]="mEmail.invalid && mEmail.touched"
+
                           class="form-control form-control-user"
                           id="exampleInputEmail"
                           aria-describedby="emailHelp"
                           placeholder="Enter Email Address...">
+                      <div *ngIf="mEmail.invalid && mEmail.touched">
+                        <ol>
+                          <li *ngIf="mEmail.errors['required']">請輸入 E-mail 欄位</li>
+                          <li *ngIf="mEmail.errors['email']">請輸入合法的 E-mail 欄位</li>
+                        </ol>
+                      </div>
 <pre>mEmail.value     = {{ mEmail.value | json }}
 mEmail.valid     = {{ mEmail.valid | json }}
 mEmail.invalid   = {{ mEmail.invalid | json }}

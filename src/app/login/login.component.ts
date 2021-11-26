@@ -7,8 +7,8 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 export class LoginComponent implements OnInit, OnDestroy {
 
   data: any = {
-    email: 'user01@example.com',
-    password: '123',
+    email: '',
+    password: '',
     isRememberMe: true
   };
 
