@@ -22,19 +22,27 @@ export class Login2Component implements OnInit {
     document.body.className = 'bg-gradient-primary';
 
     this.form = this.fb.group({
-      email: this.fb.control('user02@example.com', {
+      email: this.fb.control('', {
         validators: [
           Validators.required,
           Validators.email
         ],
         updateOn: 'blur'
       }),
-      password: this.fb.control('123123', {
+      password: this.fb.control('', {
         validators: [Validators.required],
         updateOn: 'blur'
       }),
       isRememberMe: this.fb.control(true)
     });
+
+    this.doReset();
+  }
+
+  doReset() {
+    this.form.reset(this.data);
+    // this.form.setValue(this.data);
+    // this.form.patchValue(this.data);
   }
 
   ngOnDestroy(): void {
