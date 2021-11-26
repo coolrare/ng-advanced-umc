@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { ValidatePasswordComplexity } from './ValidatePasswordComplexity';
 
 @Component({
   selector: 'app-login2',
@@ -32,7 +33,7 @@ export class Login2Component implements OnInit {
       password: this.fb.control('', {
         validators: [
           Validators.required,
-          Validators.pattern(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,30}$/)
+          ValidatePasswordComplexity
         ],
         updateOn: 'change'
       }),

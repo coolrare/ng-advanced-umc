@@ -67,7 +67,7 @@ fc('email').errors    = {{ fc('email').errors | json }}</pre>
                       <div *ngIf="fc('password').invalid">
                         <ul>
                           <li *ngIf="fc('password').errors['required']">請輸入密碼欄位</li>
-                          <li *ngIf="fc('password').errors['pattern']">請輸入足夠複雜的密碼</li>
+                          <li *ngIf="fc('password').errors['PasswordComplexity']">請輸入足夠複雜的密碼</li>
                         </ul>
                       </div>
 <pre>fc('password').value     = {{ fc('password').value | json }}
