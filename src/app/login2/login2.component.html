@@ -29,14 +29,14 @@ form.errors    = {{ form.errors | json }}</pre>
 
                       formControlName="email"
 
-                      [class.is-valid]="fc('email').valid && fc('email').touched"
-                      [class.is-invalid]="fc('email').invalid && fc('email').touched"
+                      [class.is-valid]="fc('email').valid"
+                      [class.is-invalid]="fc('email').invalid"
 
                           class="form-control form-control-user"
                           id="exampleInputEmail"
                           aria-describedby="emailHelp"
                           placeholder="Enter Email Address...">
-                      <div *ngIf="fc('email').invalid && fc('email').touched">
+                      <div *ngIf="fc('email').invalid">
                         <ul>
                           <li *ngIf="fc('email').errors['required']">請輸入 E-mail 欄位</li>
                           <li *ngIf="fc('email').errors['email']">請輸入合法的 E-mail 欄位</li>

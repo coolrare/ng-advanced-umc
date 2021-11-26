@@ -13,6 +13,7 @@ import { ColorComponent } from './utils/color/color.component';
 import { LoginComponent } from './login/login.component';
 import { LayoutComponent } from './layout/layout.component';
 import { Login2Component } from './login2/login2.component';
+import { PasswordComplexityValidator } from './password-complexity.directive';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { Login2Component } from './login2/login2.component';
     ColorComponent,
     LoginComponent,
     LayoutComponent,
-    Login2Component
+    Login2Component,
+    PasswordComplexityValidator
   ],
   imports: [
     BrowserModule,
@@ -32,7 +34,7 @@ import { Login2Component } from './login2/login2.component';
     ReactiveFormsModule,
     FormsModule
   ],
-  providers: [],
+  providers: [PasswordComplexityValidator],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

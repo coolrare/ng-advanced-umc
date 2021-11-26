@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { PasswordComplexityValidator } from '../password-complexity.directive';
 import { ValidatePasswordComplexity } from '../shared/ValidatePasswordComplexity';
 
 @Component({
@@ -17,7 +18,7 @@ export class Login2Component implements OnInit {
 
   form: FormGroup;
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private pcv: PasswordComplexityValidator) { }
 
   ngOnInit(): void {
     document.body.className = 'bg-gradient-primary';
@@ -26,14 +27,15 @@ export class Login2Component implements OnInit {
       email: this.fb.control('', {
         validators: [
           Validators.required,
-          Validators.email
+          Validators.email,
+          Validators.minLength(5)
         ],
-        updateOn: 'blur'
+        updateOn: 'change'
       }),
       password: this.fb.control('', {
         validators: [
           Validators.required,
-          ValidatePasswordComplexity
+          this.pcv.validate
         ],
         updateOn: 'change'
       }),
