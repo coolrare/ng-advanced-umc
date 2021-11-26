@@ -18,16 +18,29 @@
                     <input type="email"
 
                       [(ngModel)]="data.email" name="email"
+                      #mEmail="ngModel"
+                      required email
 
                           class="form-control form-control-user"
                           id="exampleInputEmail"
                           aria-describedby="emailHelp"
                           placeholder="Enter Email Address...">
+<pre>mEmail.value     = {{ mEmail.value | json }}
+mEmail.valid     = {{ mEmail.valid | json }}
+mEmail.invalid   = {{ mEmail.invalid | json }}
+mEmail.pristine  = {{ mEmail.pristine | json }}
+mEmail.dirty     = {{ mEmail.dirty | json }}
+mEmail.touched   = {{ mEmail.touched | json }}
+mEmail.untouched = {{ mEmail.untouched | json }}
+mEmail.enabled   = {{ mEmail.enabled | json }}
+mEmail.disabled  = {{ mEmail.disabled | json }}
+mEmail.errors    = {{ mEmail.errors | json }}</pre>
                   </div>
                   <div class="form-group">
                     <input type="password"
 
                       [(ngModel)]="data.password" name="password"
+                      #mPassword="ngModel"
 
                            class="form-control form-control-user" id="exampleInputPassword"
                            placeholder="Password">
@@ -37,6 +50,7 @@
                       <input type="checkbox"
 
                         [(ngModel)]="data.isRememberMe" name="isRememberMe"
+                        #mIsRememberMe="ngModel"
 
                             class="custom-control-input" id="customCheck">
                       <label class="custom-control-label" for="customCheck">Remember Me</label>
