@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { ValidatePasswordComplexity } from './ValidatePasswordComplexity';
+import { ValidatePasswordComplexity } from '../shared/ValidatePasswordComplexity';
 
 @Component({
   selector: 'app-login2',
