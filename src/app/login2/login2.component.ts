@@ -34,7 +34,7 @@ export class Login2Component implements OnInit {
           Validators.required,
           Validators.pattern(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,30}$/)
         ],
-        updateOn: 'blur'
+        updateOn: 'change'
       }),
       isRememberMe: this.fb.control(true)
     });

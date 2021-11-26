@@ -58,13 +58,13 @@ fc('email').errors    = {{ fc('email').errors | json }}</pre>
 
                       formControlName="password"
 
-                      [class.is-valid]="fc('password').valid && fc('password').touched"
-                      [class.is-invalid]="fc('password').invalid && fc('password').touched"
+                      [class.is-valid]="fc('password').valid"
+                      [class.is-invalid]="fc('password').invalid"
 
                            class="form-control form-control-user" id="exampleInputPassword"
                            placeholder="Password">
 
-                      <div *ngIf="fc('password').invalid && fc('password').touched">
+                      <div *ngIf="fc('password').invalid">
                         <ul>
                           <li *ngIf="fc('password').errors['required']">請輸入密碼欄位</li>
                           <li *ngIf="fc('password').errors['pattern']">請輸入足夠複雜的密碼</li>
