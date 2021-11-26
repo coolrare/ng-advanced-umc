@@ -58,6 +58,9 @@ form.get('email').errors    = {{ form.get('email').errors | json }}</pre>
 
                       formControlName="password"
 
+                      [class.is-valid]="form.get('password').valid && form.get('password').touched"
+                      [class.is-invalid]="form.get('password').invalid && form.get('password').touched"
+
                            class="form-control form-control-user" id="exampleInputPassword"
                            placeholder="Password">
                   </div>

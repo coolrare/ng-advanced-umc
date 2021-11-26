@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-login2',
@@ -9,8 +9,8 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 export class Login2Component implements OnInit {
 
   data: any = {
-    email: '',
-    password: '',
+    email: 'user02@example.com',
+    password: '123123',
     isRememberMe: true
   };
 
@@ -21,7 +21,16 @@ export class Login2Component implements OnInit {
   ngOnInit(): void {
     document.body.className = 'bg-gradient-primary';
 
-    this.form = this.fb.group(this.data);
+    this.form = this.fb.group({
+      email: ['user02@example.com', [
+        Validators.required,
+        Validators.email
+      ]],
+      password: ['123123', [
+        Validators.required
+      ]],
+      isRememberMe: true
+    });
   }
 
   ngOnDestroy(): void {
