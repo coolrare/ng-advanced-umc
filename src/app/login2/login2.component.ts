@@ -22,14 +22,18 @@ export class Login2Component implements OnInit {
     document.body.className = 'bg-gradient-primary';
 
     this.form = this.fb.group({
-      email: ['user02@example.com', [
-        Validators.required,
-        Validators.email
-      ]],
-      password: ['123123', [
-        Validators.required
-      ]],
-      isRememberMe: true
+      email: this.fb.control('user02@example.com', {
+        validators: [
+          Validators.required,
+          Validators.email
+        ],
+        updateOn: 'blur'
+      }),
+      password: this.fb.control('123123', {
+        validators: [Validators.required],
+        updateOn: 'blur'
+      }),
+      isRememberMe: this.fb.control(true)
     });
   }
 
